@@ -9,7 +9,7 @@ import lombok.Setter;
 public class UserRating {
 
     @JsonProperty("user_id")
-    private String user_id;
+    private String userId;
 
     private int rating;
 

@@ -1,0 +1,35 @@
+{
+  "location_id": 1,
+  "name": "Galactic center",
+  "location_x": 41.8819,
+  "location_y": -87.6278,
+  "location_z": -15.8432,
+  "taxes": [
+    {
+      "name": "occupancy tax",
+      "rate": 0.164
+    }
+  ],
+  "hotels": [
+    {
+      "name": "Bespin Level 1 at Cloud City",
+      "location_x": 41.8883,
+      "location_y": -87.6381,
+      "location_z": 2.9874,
+      "rates": [
+        {
+          "base_price": 179,
+          "room_id": "3",
+          "name": "Double"
+        }
+      ],
+      "star_rating": 4,
+      "user_ratings": [
+        {
+          "user_id": "hsolo",
+          "rating": 1
+        }
+      ]
+    }
+  ]
+}

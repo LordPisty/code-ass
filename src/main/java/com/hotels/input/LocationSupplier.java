@@ -6,7 +6,10 @@ import java.util.function.Supplier;
 
 
 /**
- * Created by screspi on 9/25/15.
+ * Represents a supplier of {@link com.hotels.domain.Location}.
+ *
+ * <p>There is no requirement that a new or distinct result be returned each
+ * time the locationSupplier is invoked.
  */
 @FunctionalInterface
 public interface LocationSupplier extends Supplier<Location> {
