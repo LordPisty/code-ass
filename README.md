@@ -11,4 +11,12 @@
  * no caching of the values computed for sorting has been implemented (distances, min rates, avg ratings)
  * the sorting doesn't modify the actual location object, but rather returns a brand new list of hotels
  * streams have been implemented as ordinary ones, but should be converted to parallel ones for multithread applications
+ * 
+ 
+### Gradle Tasks:
+ *  `clean` - delete all build artifacts
+ *  `test` - run all unit tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
+ *  `generateJavadocs` - generate javadoc documentation into 'build/docs/javadoc/'
+ *  `build` - build application
+ *  `run` - run main method, expects sorting criteria and direction parameters: e.g. `-PappArgs="['rating', 'descending']"`
 
