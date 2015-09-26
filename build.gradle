@@ -1,3 +1,12 @@
+/**
+ *  Tasks:
+ *  clean - delete all build artifacts
+ *  test - run all unit tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
+ *  generateJavadocs - generate javadoc documentation into 'build/docs/javadoc/'
+ *  build - build application
+ *  run - run main method, expects sorting criteria and direction parameters: e.g. -PappArgs="['rating', 'descending']"
+ */
+
 def jacksonVersion = '2.6.2'
 
 apply plugin: 'java'
