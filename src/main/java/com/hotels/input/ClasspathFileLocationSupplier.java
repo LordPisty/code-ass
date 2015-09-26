@@ -7,6 +7,8 @@ import org.apache.commons.lang3.Validate;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Implementation of the {@link com.hotels.input.LocationSupplier}
@@ -17,6 +19,8 @@ import java.net.URL;
  * time the supplier is invoked.
  */
 public class ClasspathFileLocationSupplier implements LocationSupplier {
+
+    private final static Logger LOGGER = Logger.getLogger(ClasspathFileLocationSupplier.class.getName());
 
     /**
      * Default instance returned.
@@ -39,8 +43,10 @@ public class ClasspathFileLocationSupplier implements LocationSupplier {
             try {
                 location = objMapper.readValue(file, Location.class);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOGGER.log(Level.SEVERE, "Error reading dataset file at: " + filePath, e);
             }
+        } else {
+            LOGGER.severe("Error retrieving dataset file at: " + filePath);
         }
     }
 

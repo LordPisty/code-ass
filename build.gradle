@@ -27,7 +27,9 @@ dependencies {
 }
 
 run {
-    args += 'first_arg'
+    if ( project.hasProperty("appArgs") ) {
+        args Eval.me(appArgs)
+    }
 }
 
 task generateJavadocs(type: Javadoc) {
