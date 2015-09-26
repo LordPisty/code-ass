@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Setter
 @Getter
@@ -29,5 +30,25 @@ public class Hotel {
 
     @JsonProperty("user_ratings")
     private List<UserRating> userRatings;
+
+    public Double getLowestPrice() {
+        Double retVal = Double.MAX_VALUE;
+        if (getRates()!= null && !getRates().isEmpty()) {
+            retVal = getRates().stream().min((rate1, rate2) -> Double.valueOf(rate1.getBasePrice()).compareTo(Double.valueOf(rate2.getBasePrice()))).get().getBasePrice();
+        }
+        return retVal;
+    }
+
+    public Double getAverageUserRating() {
+        Double retVal = 0d;
+        if (getUserRatings()!= null && !getUserRatings().isEmpty()) {
+            retVal = getUserRatings().stream().collect(Collectors.averagingDouble(rating -> rating.getRating()));
+        }
+        return retVal;
+    }
+
+    public String toString() {
+        return getName();
+    }
 
 }
