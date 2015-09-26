@@ -3,13 +3,12 @@ package com.hotels.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+@Setter
+@Getter
 public class Tax {
-    @Setter
-    @Getter
+
     private String name;
 
-    @Setter
-    @Getter
     private double rate;
 
 }
