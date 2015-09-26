@@ -28,3 +28,7 @@ dependencies {
 run {
     args += 'first_arg'
 }
+
+task generateJavadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
+}
