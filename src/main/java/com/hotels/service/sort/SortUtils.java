@@ -16,7 +16,7 @@ public class SortUtils {
     public static final Comparator<Hotel> NAME_COMPARATOR = Comparator.comparing(Hotel::getName);
 
     /**
-     * Compare hotels based on lowest room price.
+     * Compare hotels based on lowest rate available for that property.
      */
     public static final Comparator<Hotel> LOWEST_PRICE_COMPARATOR = Comparator.comparing(Hotel::getLowestPrice);
 
