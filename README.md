@@ -1,6 +1,6 @@
 # code-assessment
 
-### System Requirements
+### Environment Requirements
 * JDK: 1.8 (1.8.0_40)
 * Gradle: 2.7
 
@@ -16,6 +16,7 @@
 ### Gradle Tasks:
  *  `clean` - delete all build artifacts
  *  `test` - run all unit tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
+ *  `intTest` - run integration tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
  *  `generateJavadocs` - generate javadoc documentation into 'build/docs/javadoc/'
  *  `build` - build application
  *  `run` - run main method, expects sorting criteria and direction parameters: e.g. `-PappArgs="['rating', 'descending']"`
