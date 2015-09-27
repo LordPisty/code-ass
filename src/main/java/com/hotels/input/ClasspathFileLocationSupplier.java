@@ -51,9 +51,9 @@ public class ClasspathFileLocationSupplier implements LocationSupplier {
     }
 
     /**
-     * Returns the location instance, or {@code null} if an exception happened.
+     * Returns a location instance, or {@code null} if an exception happened.
      *
-     * @return a location
+     * @return a location instance, or {@code null} if an exception happened
      */
     @Override
     public Location get() {

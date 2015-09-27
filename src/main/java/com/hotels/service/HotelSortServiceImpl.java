@@ -22,14 +22,15 @@ public class HotelSortServiceImpl implements HotelSortService{
 
     /**
      * {@inheritDoc}
-     *
-     * @throws NullPointerException if the location hotels collection is null
      */
     @Override
     public List<Hotel> sort(Location location, SortCriteria sortCriteria, SortDirection sortDirection) {
-        final List<Hotel> sortedList = new ArrayList(location.getHotels());
-        final Comparator<Hotel> comparator = sortCriteria.getComparator(location);
-        Collections.sort(sortedList, sortDirection.getValue() ? comparator.reversed() : comparator);
+        final List<Hotel> sortedList = null;
+        if (location != null && location.getHotels() != null) {
+            new ArrayList(location.getHotels());
+            final Comparator<Hotel> comparator = sortCriteria.getComparator(location);
+            Collections.sort(sortedList, sortDirection.getValue() ? comparator.reversed() : comparator);
+        }
         return sortedList;
     }
 }

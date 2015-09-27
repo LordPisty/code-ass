@@ -23,6 +23,9 @@ public interface HotelSortService {
      * @param location the location object to operate sorting on
      * @param sortCriteria the criteria to use when sorting
      * @param sortDirection the direction to use when sorting
+     * @return a sorted list of hotels according to the specified criteria and location,
+     * or {@code null} if the specified location is {@code null} or
+     * if the specified location {@code getHotels} returns {@code null}
      */
     List<Hotel> sort(Location location, SortCriteria sortCriteria, SortDirection sortDirection);
 
