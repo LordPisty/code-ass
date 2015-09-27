@@ -7,38 +7,25 @@ import static com.hotels.service.sort.SortUtils.AVERAGE_USER_RATING_COMPARATOR;
 
 import com.hotels.domain.Hotel;
 import com.hotels.domain.Location;
-import lombok.Getter;
 
 import java.util.Comparator;
 
 /**
  * Sorting criteria available: criteria support chaining 2 {@link java.util.Comparator}.
  */
-@Getter
 public enum SortCriteria {
 
     /**
      * Sort according to the distance from location center,
      * and then by name.
      */
-    DISTANCE_SORT (null, NAME_COMPARATOR) {
+    DISTANCE_SORT {
         /**
          * {@inheritDoc}
          */
         @Override
         public Comparator<Hotel> getComparator(Location location) {
-            return Comparator.comparing((Hotel hotel) -> computeDistance(location, hotel)).thenComparing(getSecondaryComparator());
-        }
-
-        /**
-         * Throws an {@link java.lang.IllegalArgumentException}
-         *
-         * @deprecated Use <code>getComparator(Location location)</code> instead
-         */
-        @Override
-        @Deprecated
-        protected Comparator<Hotel> getComparator() {
-            throw new IllegalArgumentException("Distance sort criteria requires Location parameter");
+            return Comparator.comparing((Hotel hotel) -> computeDistance(location, hotel)).thenComparing(NAME_COMPARATOR);
         }
     },
 
@@ -54,31 +41,23 @@ public enum SortCriteria {
      */
     AVERAGE_USER_RATING_SORT (AVERAGE_USER_RATING_COMPARATOR, NAME_COMPARATOR);
 
-    private final Comparator<Hotel> primaryComparator;
+    private final Comparator<Hotel> comparator;
 
-    private final Comparator<Hotel> secondaryComparator;
+    SortCriteria() {
+        comparator = null;
+    }
 
     SortCriteria(Comparator<Hotel> primaryComparator, Comparator<Hotel> secondaryComparator) {
-        this.primaryComparator = primaryComparator;
-        this.secondaryComparator = secondaryComparator;
+        comparator = primaryComparator.thenComparing(secondaryComparator);
     }
 
     /**
      * Returns the comparator associated to this criteria.
      *
-     * @param location the location object to use for comparisons
+     * @param location the location object to eventually use for comparisons
      * @return the comparator associated to this criteria.
      */
     public Comparator<Hotel> getComparator(Location location) {
-        return getComparator();
-    }
-
-    /**
-     * Returns the comparator associated to this criteria.
-     *
-     * @return the comparator associated to this criteria.
-     */
-    protected Comparator<Hotel> getComparator() {
-        return getPrimaryComparator().thenComparing(getSecondaryComparator());
+        return comparator;
     }
 }

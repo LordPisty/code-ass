@@ -5,7 +5,7 @@
  *  intTest - run integration tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
  *  generateJavadocs - generate javadoc documentation into 'build/docs/javadoc/'
  *  build - build application
- *  run - run main method, expects sorting criteria and direction parameters: e.g. -PappArgs="['rating', 'descending']"
+ *  run - run main method, it expects sorting criteria and direction parameters: e.g. -PappArgs="['rating', 'descending']"
  */
 
 apply plugin: 'java'
