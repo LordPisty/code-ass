@@ -6,7 +6,7 @@
 
 ### General Assumptions
 * the input json file/dataset is assumed to be valid and complete (no invalid or missing fields/values)
-* all sorting criteria are assumed to be requested with the same probability (so no one of them has been assumed to be the default, and used to store the hotels list)
+* all sorting criteria are assumed to be requested with the same probability (so no one of them has been assumed to be the default, and used to store the hotel list)
 * if 2 hotels are equivalent according to the primary sorting criteria selected, the hotel name is used as secondary sorting criteria
 * location taxes are assumed to not affect sorting by lower price
 * no information is available about the usage of the "library" (single/multi-threaded environment), and as a consequence:
@@ -34,5 +34,5 @@ e.g.: `gradle run -PappArgs="['price', 'descending']"`
  *  `intTest` - run integration tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
  *  `generateJavadocs` - generate javadoc documentation into 'build/docs/javadoc/'
  *  `build` - build application
- *  `run` - run main method, expects sorting criteria and direction parameters: e.g. `-PappArgs="['rating', 'descending']"`
+ *  `run` - run main method, it expects sorting criteria and direction parameters: e.g. `-PappArgs="['rating', 'descending']"`
 
