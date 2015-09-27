@@ -25,9 +25,9 @@ public class HotelSortServiceImpl implements HotelSortService{
      */
     @Override
     public List<Hotel> sort(Location location, SortCriteria sortCriteria, SortDirection sortDirection) {
-        final List<Hotel> sortedList = null;
+        List<Hotel> sortedList = null;
         if (location != null && location.getHotels() != null) {
-            new ArrayList(location.getHotels());
+            sortedList = new ArrayList(location.getHotels());
             final Comparator<Hotel> comparator = sortCriteria.getComparator(location);
             Collections.sort(sortedList, sortDirection.getValue() ? comparator.reversed() : comparator);
         }
