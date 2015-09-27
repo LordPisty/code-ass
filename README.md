@@ -12,6 +12,7 @@
 * no information is available about the usage of the "library" (single/multi-threaded environment), and as a consequence:
  * no caching of the values computed for sorting has been implemented in the domain objects (distances, min rates, avg ratings)
  * the sorting doesn't modify the actual location object, but rather returns a brand new list of hotels
+ * comparators have been implemented in a thread safe and reusable manner
  * streams have been implemented as ordinary ones, but should be converted to parallel ones for multithread applications
 
 ### Run instructions
