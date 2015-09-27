@@ -16,7 +16,7 @@ import static com.hotels.service.sort.SortCriteria.AVERAGE_USER_RATING_SORT;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by screspi on 9/26/15.
+ * Created by screspi.
  */
 public class SortCriteriaTestCase {
 

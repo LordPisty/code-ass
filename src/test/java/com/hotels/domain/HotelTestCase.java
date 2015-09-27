@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by screspi on 9/26/15.
+ * Created by screspi.
  */
 public class HotelTestCase {
 

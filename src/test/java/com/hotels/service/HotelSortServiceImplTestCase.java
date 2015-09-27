@@ -17,7 +17,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Created by screspi on 9/26/15.
+ * Created by screspi.
  */
 public class HotelSortServiceImplTestCase {
 

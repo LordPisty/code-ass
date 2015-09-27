@@ -19,7 +19,7 @@ import static com.hotels.service.sort.SortCriteria.*;
 import static com.hotels.service.sort.SortDirection.*;
 
 /**
- * Created by screspi on 9/27/15.
+ * Created by screspi.
  */
 public class IntegrationTest {
 

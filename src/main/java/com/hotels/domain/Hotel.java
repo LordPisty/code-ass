@@ -42,7 +42,7 @@ public class Hotel {
     public Double getAverageUserRating() {
         Double retVal = 0d;
         if (getUserRatings()!= null && !getUserRatings().isEmpty()) {
-            retVal = getUserRatings().stream().collect(Collectors.averagingDouble(rating -> rating.getRating()));
+            retVal = getUserRatings().stream().collect(Collectors.averagingDouble(UserRating::getRating));
         }
         return retVal;
     }

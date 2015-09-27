@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by screspi on 9/25/15.
+ * Created by screspi.
  */
 public class Main {
 

@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by screspi on 9/26/15.
+ * Created by screspi.
  */
 public class ClasspathFileLocationSupplierTestCase {
 
