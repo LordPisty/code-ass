@@ -34,6 +34,7 @@ public class SortCriteriaTestCase {
         location.setZ(0);
 
         hotel1 = new Hotel();
+        hotel1.setName("A");
         hotel1.setX(1);
         hotel1.setY(1);
         hotel1.setZ(1);
@@ -52,6 +53,7 @@ public class SortCriteriaTestCase {
         hotel1.setUserRatings(userRatings1);
 
         hotel2 = new Hotel();
+        hotel2.setName("B");
         hotel2.setX(2);
         hotel2.setY(2);
         hotel2.setZ(2);
@@ -71,20 +73,38 @@ public class SortCriteriaTestCase {
     }
 
     @Test
-    public void testDistanceSort() {
+    public void testDistanceSortPrimary() {
         int result = DISTANCE_SORT.getComparator(location).compare(hotel1,hotel2);
         assertEquals("Compare to result should match", -1, result);
     }
 
     @Test
-    public void testLowerPriceSort() {
+    public void testDistanceSortSecondary() {
+        int result = DISTANCE_SORT.getComparator(location).compare(hotel1,hotel1);
+        assertEquals("Compare to result should match", 0, result);
+    }
+
+    @Test
+    public void testLowerPriceSortPrimary() {
         int result = LOWEST_PRICE_SORT.getComparator(location).compare(hotel1,hotel2);
         assertEquals("Compare to result should match", 1, result);
     }
 
     @Test
-    public void testAverageUserRatingSort() {
+    public void testLowerPriceSortSecondary() {
+        int result = LOWEST_PRICE_SORT.getComparator(location).compare(hotel1,hotel1);
+        assertEquals("Compare to result should match", 0, result);
+    }
+
+    @Test
+    public void testAverageUserRatingSortPrimary() {
         int result = AVERAGE_USER_RATING_SORT.getComparator(location).compare(hotel1,hotel2);
+        assertEquals("Compare to result should match", -1, result);
+    }
+
+    @Test
+    public void testAverageUserRatingSortSecondary() {
+        int result = AVERAGE_USER_RATING_SORT.getComparator(location).compare(hotel1,hotel1);
         assertEquals("Compare to result should match", 0, result);
     }
 }

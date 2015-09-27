@@ -3,10 +3,27 @@ package com.hotels.service.sort;
 import com.hotels.domain.Hotel;
 import com.hotels.domain.Location;
 
+import java.util.Comparator;
+
 /**
  * Groups utilities for sorting criteria.
  */
 public class SortUtils {
+
+    /**
+     * Compare hotels based on name.
+     */
+    public static final Comparator<Hotel> NAME_COMPARATOR = Comparator.comparing(Hotel::getName);
+
+    /**
+     * Compare hotels based on lowest room price.
+     */
+    public static final Comparator<Hotel> LOWEST_PRICE_COMPARATOR = Comparator.comparing(Hotel::getLowestPrice);
+
+    /**
+     * Compare hotels based on average user rating.
+     */
+    public static final Comparator<Hotel> AVERAGE_USER_RATING_COMPARATOR = Comparator.comparing(Hotel::getAverageUserRating);
 
     /**
      * Returns the euclidean distance between a location and a hotel,

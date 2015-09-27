@@ -2,12 +2,11 @@
  *  Tasks:
  *  clean - delete all build artifacts
  *  test - run all unit tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
+ *  intTest - run integration tests (reports -> 'build/reports/tests/', results -> 'build/test-results/')
  *  generateJavadocs - generate javadoc documentation into 'build/docs/javadoc/'
  *  build - build application
  *  run - run main method, expects sorting criteria and direction parameters: e.g. -PappArgs="['rating', 'descending']"
  */
-
-def jacksonVersion = '2.6.2'
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -18,6 +17,24 @@ mainClassName = "com.hotels.Main"
 
 repositories {
     mavenCentral()
+}
+
+ext {
+    jacksonVersion = "2.6.2"
+}
+
+sourceSets {
+    integrationTest {
+        java {
+            srcDir 'src/integration-test/java'
+        }
+        resources {
+            srcDir 'src/integration-test/resources'
+        }
+        compileClasspath += sourceSets.main.compileClasspath
+        compileClasspath += sourceSets.main.runtimeClasspath
+        compileClasspath += sourceSets.test.runtimeClasspath
+    }
 }
 
 dependencies {
@@ -43,4 +60,9 @@ run {
 
 task generateJavadocs(type: Javadoc) {
     source = sourceSets.main.allJava
+}
+
+task intTest(type: Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath += sourceSets.integrationTest.runtimeClasspath
 }
